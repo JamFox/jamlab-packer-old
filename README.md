@@ -13,6 +13,18 @@ Packer configurations for building homelab images.
 
 Build images with:
 
-`PACKER_LOG=1 packer build debian11.pkr.hcl`
+`PACKER_LOG=1 packer build <PACKER FILE>.pkr.hcl`
 
 Output saved to new directory called `artifacts/`.
+
+## Structure
+
+Each distro should be in it's own directory. Sample distro's directory structure:
+
+```
+debian11/              # Directory for Debian 11 distro
+    http/              # Automated installation files (kickstart, preseed, etc) go here
+    ansible/           # Ansible provisioner playbooks go here
+    scripts/           # Shell provisioner scripts go here
+    debian11.pkr.hcl   # Packer configuration. Name should match parent directory for convenient CI
+```
