@@ -13,6 +13,8 @@ Configuration with [Proxmox Builder (ISO)](https://www.packer.io/plugins/builder
 
 ## Usage
 
+(Optional) Set up API access to Proxmox if you do not wish to use cluster admin to execute tasks. Follow the [Telmate Proxmox Terraform Provider Docs](https://github.com/Telmate/terraform-provider-proxmox/blob/master/docs/index.md).
+
 1. Set up sensitive PVE connection variables using `pve.hvl.sample` as a reference.
 2. Build images with:
 ```bash
