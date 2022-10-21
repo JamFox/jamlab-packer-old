@@ -13,6 +13,11 @@ variable "vm_name" {
   default = "debian-11.5.0-amd64"
 }
 
+variable "vm_id" {
+  type    = string
+  default = "100"
+}
+
 variable "sockets" {
   type    = string
   default = "2"
@@ -111,6 +116,7 @@ source "proxmox-iso" "debian-11" {
   cloud_init_storage_pool = var.cloudinit_storage_pool
 
   vm_name  = var.vm_name
+  vm_id    = var.vm_id
   cpu_type = "host"
   os       = "l26"
   memory   = var.memory
