@@ -45,7 +45,7 @@ variable "cloudinit_storage_pool" {
 
 variable "disk_storage_pool" {
   type    = string
-  default = "thpl"
+  default = "data"
 }
 
 variable "disk_storage_pool_type" {
