@@ -9,22 +9,15 @@ JamLab Packer Builds
 
 Packer configurations for building homelab images.
 
+Configuration with [Proxmox Builder (ISO)](https://www.packer.io/plugins/builders/proxmox/iso).
+
 ## Usage
 
-Build images with:
-
-`PACKER_LOG=1 packer build <PACKER FILE>.pkr.hcl`
-
-Output saved to new directory called `artifacts/`.
-
-## Structure
-
-Each distro should be in it's own directory. Sample distro's directory structure:
-
+1. Set up sensitive PVE connection variables using `pve.hvl.sample` as a reference.
+2. Build images with:
+```bash
+cd <DISTRO DIR>
+PACKER_LOG=1 packer build -var-file <PATH TO PVE VAR FILE> <PACKER FILE>.pkr.hcl
 ```
-debian11/              # Directory for Debian 11 distro
-    http/              # Automated installation files (kickstart, preseed, etc) go here
-    ansible/           # Ansible provisioner playbooks go here
-    scripts/           # Shell provisioner scripts go here
-    debian11.pkr.hcl   # Packer configuration. Name should match parent directory for convenient CI
-```
+
+Output is a VM template in PVE.

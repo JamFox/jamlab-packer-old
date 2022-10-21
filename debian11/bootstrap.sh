@@ -18,7 +18,7 @@ fi
 
 $ANSIBLE_MAIN_DIR/bin/jamlab-bootstrap
 if [ $? -ne 0 ]; then
-    echo -e "[ Unable to clone bootstrap with $ANSIBLE_MAIN_DIR/bin/jamlab-bootstrap" >&2
+    echo -e "[ Unable to bootstrap with $ANSIBLE_MAIN_DIR/bin/jamlab-bootstrap" >&2
     exit 1
 fi
 
