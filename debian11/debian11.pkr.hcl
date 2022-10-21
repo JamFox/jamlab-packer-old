@@ -10,7 +10,7 @@ variable "iso_url" {
 
 variable "vm_name" {
   type    = string
-  default = "debian-11.5.0-amd64"
+  default = "debian11"
 }
 
 variable "vm_id" {
