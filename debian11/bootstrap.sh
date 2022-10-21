@@ -8,7 +8,7 @@ set -x
 exec &> /var/log/jamlab_install.log
 
 # Clone jamlab-ansible and bootstrap
-git clone https://github.com/JamFox/jamlab-ansible.git /opt/jamlab-ansible
+/usr/bin/git clone https://github.com/JamFox/jamlab-ansible.git /opt/jamlab-ansible
 if [ $? -ne 0 ]; then
     echo -e "[ Unable to clone https://github.com/JamFox/jamlab-ansible.git" >&2
     exit 1
