@@ -21,7 +21,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # Don't run jamlab-firstboot again
-systemctl disable jamlab-firstboot.service
+/usr/bin/systemctl disable jamlab-firstboot.service
 
 reboot
 SCRIPT_EOF
