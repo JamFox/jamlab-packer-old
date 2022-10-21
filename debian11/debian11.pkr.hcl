@@ -150,8 +150,4 @@ build {
       "touch /etc/machine-id && ln -s /etc/machine-id /var/lib/dbus/machine-id",
     ]
   }
-  
-  provisioner "shell" {
-    script = "bootstrap.sh"
-  }
 }
