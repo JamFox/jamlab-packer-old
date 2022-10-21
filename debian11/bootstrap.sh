@@ -7,6 +7,8 @@ cat << SCRIPT_EOF > /etc/systemd/scripts/jamlab-firstboot
 set -x
 exec &> /var/log/jamlab_install.log
 
+/usr/bin/cloud-init status --wait
+
 # Clone jamlab-ansible and bootstrap
 /usr/bin/git clone https://github.com/JamFox/jamlab-ansible.git /opt/jamlab-ansible
 if [ $? -ne 0 ]; then
