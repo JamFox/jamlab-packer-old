@@ -8,17 +8,15 @@ set -x
 exec &> /var/log/jamlab_install.log
 
 # Clone jamlab-ansible and bootstrap
-ANSIBLE_REPO_URL=https://github.com/JamFox/jamlab-ansible.git
-ANSIBLE_MAIN_DIR=/opt/jamlab-ansible
-git clone $ANSIBLE_REPO_URL $ANSIBLE_MAIN_DIR
+git clone https://github.com/JamFox/jamlab-ansible.git /opt/jamlab-ansible
 if [ $? -ne 0 ]; then
-    echo -e "[ Unable to clone $ANSIBLE_REPO_URL" >&2
+    echo -e "[ Unable to clone https://github.com/JamFox/jamlab-ansible.git" >&2
     exit 1
 fi
 
-$ANSIBLE_MAIN_DIR/bin/jamlab-bootstrap
+/opt/jamlab-ansible/bin/jamlab-bootstrap
 if [ $? -ne 0 ]; then
-    echo -e "[ Unable to bootstrap with $ANSIBLE_MAIN_DIR/bin/jamlab-bootstrap" >&2
+    echo -e "[ Unable to bootstrap with /opt/jamlab-ansible/bin/jamlab-bootstrap" >&2
     exit 1
 fi
 
@@ -27,6 +25,7 @@ systemctl disable jamlab-firstboot.service
 
 reboot
 SCRIPT_EOF
+chmod +x /etc/systemd/scripts/jamlab-firstboot
 
 
 cat << SERVICE_EOF > /etc/systemd/system/jamlab-firstboot.service
@@ -42,7 +41,7 @@ Type=oneshot
 [Install]
 WantedBy=multi-user.target
 SERVICE_EOF
-
+chmod +x /etc/systemd/system/jamlab-firstboot.service
 
 # Enable service
 systemctl enable jamlab-firstboot.service

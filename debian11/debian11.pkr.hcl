@@ -138,6 +138,11 @@ build {
     source      = "cloud.cfg"
   }
 
+  provisioner "file" {
+    destination = "/root/.ansible-vault-pass"
+    source      = "/root/.ansible-vault-pass"
+  }
+
   provisioner "shell" {
     inline = [
       "rm /etc/ssh/ssh_host_*",
