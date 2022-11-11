@@ -35,7 +35,7 @@ variable "disk_format" {
 
 variable "disk_size" {
   type    = string
-  default = "200G"
+  default = "100G"
 }
 
 variable "cloudinit_storage_pool" {
